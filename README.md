@@ -2,6 +2,12 @@
 
 a rebuild of the [original](https://github.com/dallenbaldwin/WeNeedToEat), with svelte-kit
 
+[site](https://weneedtoeat.dallenbaldwin.dev/) (may be old, may be new depending on where things are)
+
+## daisy-ui
+
+[docs](https://daisyui.com/docs/)
+
 ## create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
