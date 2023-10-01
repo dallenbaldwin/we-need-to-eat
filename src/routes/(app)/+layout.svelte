@@ -1,7 +1,12 @@
-<nav>
-  <a href="/home">Home</a>
-  <a href="/meals">Meals</a>
-  <a href="/">Logout</a>
-</nav>
+<script>
+  import Navbar from '$lib/Navbar.svelte'
+</script>
+
+<Navbar
+  links={[
+    { href: '/home', label: 'Home' },
+    { href: '/meals', label: 'Meals' },
+  ]}
+/>
 
 <slot />

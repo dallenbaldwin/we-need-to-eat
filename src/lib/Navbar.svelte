@@ -10,11 +10,3 @@
     <a {href}>{label}</a>
   {/each}
 </nav>
-
-<style>
-  nav {
-    height: 6rem;
-    background-color: blueviolet;
-    color: whitesmoke;
-  }
-</style>
