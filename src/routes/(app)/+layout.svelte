@@ -1,7 +1,7 @@
 <nav>
-  <a href="/login">Login</a>
-  <a href="/">Home</a>
+  <a href="/home">Home</a>
   <a href="/meals">Meals</a>
+  <a href="/">Logout</a>
 </nav>
 
 <slot />
