@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full m-auto w-4/5">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%sveltekit.assets%/favicon.png" />
@@ -7,22 +7,18 @@
     <meta name="viewport" content="width=device-width" />
     <script>
       // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-      if (
+      const dark =
         localStorage.theme === 'dark' ||
         (!('theme' in localStorage) &&
           window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ) {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-      }
+      document.documentElement.setAttribute(
+        'data-theme',
+        dark ? 'dark' : 'light'
+      )
     </script>
     %sveltekit.head%
   </head>
-  <body
-    data-sveltekit-preload-data="hover"
-    class="dark:bg-gray-900 dark:text-gray-50"
-  >
+  <body data-sveltekit-preload-data="hover">
     <div style="display: contents">%sveltekit.body%</div>
   </body>
 </html>

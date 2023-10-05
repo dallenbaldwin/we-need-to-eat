@@ -9,14 +9,15 @@
     else localStorage.setItem('theme', theme)
 
     const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const classList = document.documentElement.classList
-    if (theme === 'dark') classList.add('dark')
-    else if (!theme && prefers) classList.add('dark')
-    else classList.remove('dark')
+    const set = (theme: string) =>
+      document.documentElement.setAttribute('data-theme', theme)
+    if (theme === 'dark') set('dark')
+    else if (!theme && prefers) set('dark')
+    else set('light')
   }
 </script>
 
-<nav class="flex justify-between p-3">
+<nav class="flex justify-between py-3">
   <span>We Need to Eat!</span>
   <span>
     <Navlink to="/">Home</Navlink>
