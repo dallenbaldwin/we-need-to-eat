@@ -1,1 +1,6 @@
-// place files you want to import through the `$lib` alias in this folder.
+export type User = {
+  admin: boolean
+  preferredName: string
+  surname: string
+  username: string
+}
