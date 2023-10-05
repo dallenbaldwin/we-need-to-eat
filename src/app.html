@@ -6,15 +6,8 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <meta name="viewport" content="width=device-width" />
     <script>
-      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-      const dark =
-        localStorage.theme === 'dark' ||
-        (!('theme' in localStorage) &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches)
-      document.documentElement.setAttribute(
-        'data-theme',
-        dark ? 'dark' : 'light'
-      )
+      const theme = localStorage.getItem('theme')
+      if (theme) document.documentElement.setAttribute('data-theme', theme)
     </script>
     %sveltekit.head%
   </head>
