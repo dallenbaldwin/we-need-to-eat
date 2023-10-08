@@ -2,11 +2,11 @@
   @component
  -->
 <script lang="ts">
-  import type { User } from '..'
+  import type { User } from '../server/db/schema/User'
+  import Link from './Link.svelte'
+  import NavbarLink from './NavbarLink.svelte'
 
   export let user: User | undefined
-
-  import Navlink from './Navlink.svelte'
 
   function setTheme(theme?: 'light' | 'dark') {
     if (!theme) localStorage.removeItem('theme')
@@ -26,17 +26,19 @@
 <div class="bg-base-100 sticky top-0">
   <div class="p-6 pb-0">
     <div class="navbar p-6 bg-primary text-primary-content rounded-lg">
-      <div class="navbar-start">we need to eat!</div>
+      <div class="navbar-start">
+        <Link href="/">we need to eat!</Link>
+      </div>
       <div class="navbar-center">
-        <Navlink to="/">home</Navlink>
+        <NavbarLink to="/">home</NavbarLink>
         {#if user?.admin}
-          <Navlink to="/admin">admin</Navlink>
+          <NavbarLink to="/admin">admin</NavbarLink>
         {/if}
         {#if user}
-          <Navlink to="/eat">eat</Navlink>
-          <Navlink to="/meals">meals</Navlink>
+          <NavbarLink to="/eat">eat</NavbarLink>
+          <NavbarLink to="/meals">meals</NavbarLink>
         {/if}
-        <Navlink to="/account">account</Navlink>
+        <NavbarLink to="/account">account</NavbarLink>
       </div>
       <div class="navbar-end">
         <button on:click={() => setTheme('light')}>light</button>
