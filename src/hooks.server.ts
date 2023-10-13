@@ -1,4 +1,8 @@
 import { redirect, type Handle } from '@sveltejs/kit'
+import { migrate } from 'drizzle-orm/bun-sqlite/migrator'
+import { db } from '$lib/server/db'
+
+startup()
 
 export const handle: Handle = async ({ event, resolve }) => {
   // TODO resolve user with cookies
@@ -14,4 +18,13 @@ function protect(pathname: string) {
   return protectedPathnames.some((protectedPathname) =>
     pathname.startsWith(protectedPathname)
   )
+}
+
+async function startup() {
+  try {
+    migrate(db, { migrationsFolder: './src/lib/server/db/migrations' })
+    console.log('migrated database')
+  } catch (err) {
+    console.error(err)
+  }
 }

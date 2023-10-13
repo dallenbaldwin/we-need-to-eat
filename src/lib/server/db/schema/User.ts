@@ -6,8 +6,6 @@ export const users = sqliteTable('users', {
     .$defaultFn(() => crypto.randomUUID()),
   username: text('username').notNull().unique(),
   admin: integer('admin', { mode: 'boolean' }).notNull().default(false),
-  hash: text('hash').notNull(),
-  token: text('token').notNull().unique(),
 })
 export type User = typeof users.$inferSelect
 export type InsertUser = typeof users.$inferInsert
