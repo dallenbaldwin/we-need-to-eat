@@ -3,7 +3,7 @@
  -->
 <script lang="ts">
   import type { User } from '../server/db/schema/User'
-  import Link from './Link.svelte'
+  import Anchor from './Anchor.svelte'
   import NavbarLink from './NavbarLink.svelte'
 
   export let user: User | undefined
@@ -27,7 +27,7 @@
   <div class="p-6 pb-0">
     <div class="navbar p-6 bg-primary text-primary-content rounded-lg">
       <div class="navbar-start">
-        <Link href="/">we need to eat!</Link>
+        <Anchor href="/">we need to eat!</Anchor>
       </div>
       <div class="navbar-center">
         <NavbarLink to="/">home</NavbarLink>

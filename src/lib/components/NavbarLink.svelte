@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Link from './Link.svelte'
+  import Anchor from './Anchor.svelte'
 
   export let to: string
 </script>
 
-<Link class="px-2" href={to}><slot /></Link>
+<Anchor class="px-2" href={to}><slot /></Anchor>
