@@ -1,9 +1,13 @@
 import { sqliteTable, integer, text } from 'drizzle-orm/sqlite-core'
 
-export type User = typeof User.$inferSelect
-export type InsertUser = typeof User.$inferInsert
-export const User = sqliteTable('users', {
-  id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
-  username: text('username').notNull(),
+export const users = sqliteTable('users', {
+  id: text('id')
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  username: text('username').notNull().unique(),
   admin: integer('admin', { mode: 'boolean' }).notNull().default(false),
+  hash: text('hash').notNull(),
+  token: text('token').notNull().unique(),
 })
+export type User = typeof users.$inferSelect
+export type InsertUser = typeof users.$inferInsert
