@@ -19,6 +19,7 @@ export const connectionString = dev
 
 const pool = new Pool({ connectionString })
 
+// TODO go back to sqlite, but this time use better sqlite so we can try fly.io
 export const db = drizzle(pool, {
   schema: { users, userSessions, userKeys },
 })
