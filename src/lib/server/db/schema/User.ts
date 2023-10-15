@@ -7,7 +7,7 @@ export const users = pgTable('users', {
    * @see https://lucia-auth.com/basics/users/
    */
   id: varchar('id').primaryKey(),
-  username: varchar('username').notNull().unique(),
+  username: varchar('username').notNull(),
   admin: boolean('admin').notNull().default(false),
 })
 export type User = typeof users.$inferSelect
