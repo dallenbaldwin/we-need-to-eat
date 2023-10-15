@@ -1,10 +1,10 @@
 import { fail, redirect, type Actions } from '@sveltejs/kit'
 import { eq } from 'drizzle-orm'
-import { db } from '../../../lib/server/db'
-import { users } from '../../../lib/server/db/schema/User'
+import { db, users } from '$lib/server/db'
 
 export const actions: Actions = {
   default: async ({ request }) => {
+    // TODO follow lucia
     const form = await request.formData()
     const username = form.get('username')
     const password = form.get('password')
@@ -26,8 +26,7 @@ export const actions: Actions = {
       if (user) return fail(400, { reason: 'username already exists' })
       await db.insert(users).values({
         username,
-        hash: new Bun.CryptoHasher('sha256').update(password).digest('hex'),
-        token: crypto.randomUUID(),
+        id: crypto.randomUUID(),
       })
     } catch (err) {
       return fail(500, {

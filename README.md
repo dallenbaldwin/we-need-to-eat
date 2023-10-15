@@ -4,13 +4,9 @@ a rebuild of the [original](https://github.com/dallenbaldwin/WeNeedToEat), with 
 
 [site](https://weneedtoeat.dallenbaldwin.dev/) (may be old, may be new depending on where things are)
 
-## bun
+## drizzle orm
 
-this is using bun and vite still tries to do stuff with node, which while bun is backwards compatible, you need to set the `--bun` flag to force vite to use bun as expected
-
-```bash
-bun --bun run dev
-```
+[docs](https://orm.drizzle.team/docs/overview)
 
 ## daisy-ui
 

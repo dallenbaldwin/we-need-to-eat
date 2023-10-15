@@ -1,6 +1,7 @@
 import { dev } from '$app/environment'
 import { redirect, type Action } from '@sveltejs/kit'
 
+// TODO follow lucia
 const login: Action = async ({ cookies, request }) => {
   const form = await request.formData()
   // TODO create new session for user
