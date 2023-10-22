@@ -1,5 +1,5 @@
 import { fail, redirect, type Actions } from '@sveltejs/kit'
-import { auth } from '$lib/server/auth'
+import { auth } from '$lib/server'
 import { DrizzleError } from 'drizzle-orm'
 
 export const actions: Actions = {
