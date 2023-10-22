@@ -4,6 +4,7 @@ import { users, userKeys, userSessions } from './schema/User'
 import Database from 'better-sqlite3'
 import { lucia } from 'lucia'
 import { betterSqlite3 } from '@lucia-auth/adapter-sqlite'
+import { sveltekit } from 'lucia/middleware'
 
 export * from './schema/User'
 
@@ -21,6 +22,8 @@ export const auth = lucia({
     key: 'userKeys',
     session: 'userSessions',
   }),
+  middleware: sveltekit(),
+  getUserAttributes: (data) => ({ ...data }),
 })
 
 export type Auth = typeof auth
