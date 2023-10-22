@@ -4,9 +4,10 @@ import { auth } from '$lib/server'
 export const handle: Handle = async ({ event, resolve }) => {
   const handledRequest = auth.handleRequest(event)
   const session = await handledRequest.validate()
-  if (!session && protect(event.url.pathname)) throw redirect(303, '/account')
+  if (!session || protect(event.url.pathname)) throw redirect(302, '/account')
 
   event.locals.auth = handledRequest
+  event.locals.user = await auth.getUser(session.user.id)
   return resolve(event)
 }
 

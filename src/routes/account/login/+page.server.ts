@@ -1,20 +1,42 @@
-import { dev } from '$app/environment'
-import { redirect, type Action } from '@sveltejs/kit'
+import { redirect, fail } from '@sveltejs/kit'
+import { LuciaError } from 'lucia'
+import { auth } from '$lib/server'
 
-// TODO follow lucia
-const login: Action = async ({ cookies, request }) => {
-  const form = await request.formData()
-  // TODO create new session for user
-  const maxAge = 60 * 60 * 24 * 7
-  cookies.set('session', crypto.randomUUID(), {
-    domain: '/',
-    httpOnly: true,
-    sameSite: 'strict',
-    secure: !dev,
-    maxAge,
-  })
-  console.log([...form.entries()])
-  throw redirect(303, '/eat')
+export const actions = {
+  default: async ({ locals, request }) => {
+    const form = await request.formData()
+    const username = form.get('username')
+    const password = form.get('password')
+
+    if (!username || typeof username !== 'string')
+      return fail(400, { reason: 'invalid username' })
+    if (!username.length)
+      return fail(400, { reason: 'username cannot be empty' })
+    if (!password || typeof password !== 'string')
+      return fail(400, { reason: 'invalid password' })
+    if (password.length < 6)
+      return fail(400, { reason: 'password must be at least 6 characters' })
+
+    try {
+      const key = await auth.useKey(
+        'username',
+        username.toLowerCase(),
+        password
+      )
+      const session = await auth.createSession({
+        userId: key.userId,
+        attributes: {},
+      })
+      locals.auth.setSession(session)
+    } catch (err) {
+      if (err instanceof LuciaError) {
+        return fail(400, { reason: err.message })
+      }
+      return fail(500, {
+        reason: err instanceof Error ? err.message : String(err),
+      })
+    }
+
+    throw redirect(302, '/')
+  },
 }
-
-export const actions = { login }
