@@ -1,5 +1,7 @@
 import { redirect, type Handle } from '@sveltejs/kit'
-import { auth } from '$lib/server'
+import { auth, migrate } from '$lib/server'
+
+migrate()
 
 export const handle: Handle = async ({ event, resolve }) => {
   const handledRequest = auth.handleRequest(event)

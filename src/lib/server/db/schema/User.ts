@@ -21,7 +21,7 @@ export const userKeys = sqliteTable('userKeys', {
   /** @see {@link User} */
   userId: text('user_id')
     .notNull()
-    .references(() => users.id),
+    .references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
   hashedPassword: text('hashed_password'),
 })
 /** @see {@link userKeys} */
@@ -35,7 +35,7 @@ export const userSessions = sqliteTable('userSessions', {
   /** @see {@link User} */
   userId: text('user_id')
     .notNull()
-    .references(() => users.id),
+    .references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
   activeExpires: blob('active_expires', { mode: 'bigint' }).notNull(),
   idleExpires: blob('idle_expires', { mode: 'bigint' }).notNull(),
 })
