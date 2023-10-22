@@ -2,7 +2,7 @@
 declare global {
   /** @see https://lucia-auth.com/getting-started/sveltekit/ */
   namespace Lucia {
-    type Auth = import('$lib/server/auth').Auth
+    type Auth = import('$lib/server/db').Auth
     type DatabaseUserAttributes = Omit<
       import('$lib/server/db/schema/User').User,
       'id'
