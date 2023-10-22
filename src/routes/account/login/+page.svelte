@@ -1,13 +1,14 @@
 <script lang="ts">
   import type { ActionData } from './$types'
   import Anchor from '$lib/components/Anchor.svelte'
+  import { enhance } from '$app/forms'
 
   export let form: ActionData
 </script>
 
 <h1>Login</h1>
 
-<form action="?/login" method="POST">
+<form method="POST" use:enhance>
   <div class="form-control">
     <label class="label" for="username">Username</label>
     <input class="input" id="username" name="username" type="text" required />
@@ -32,12 +33,8 @@
     Don't have an account? <Anchor href="/account/register">Register</Anchor>
   </p>
 
-  {#if form?.invalid}
-    <p class="error">Username and password is required.</p>
-  {/if}
-
-  {#if form?.credentials}
-    <p class="error">You have entered the wrong credentials.</p>
+  {#if form?.reason}
+    <p class="error">{form.reason}.</p>
   {/if}
 
   <button class="btn btn-primary" type="submit">Log in</button>

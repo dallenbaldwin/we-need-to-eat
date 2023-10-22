@@ -1,8 +1,8 @@
-import { redirect, fail } from '@sveltejs/kit'
+import { redirect, fail, type Actions } from '@sveltejs/kit'
 import { LuciaError } from 'lucia'
 import { auth } from '$lib/server'
 
-export const actions = {
+export const actions: Actions = {
   default: async ({ locals, request }) => {
     const form = await request.formData()
     const username = form.get('username')

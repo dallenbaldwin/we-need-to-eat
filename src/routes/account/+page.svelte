@@ -12,7 +12,7 @@
   <p>account info</p>
   <p>user id: {data.user?.id}</p>
   <p>username: {data.user?.username}</p>
-  <form action="?/logout" use:enhance>
+  <form method="POST" action="?/logout" use:enhance>
     <input type="submit" value="Logout" />
   </form>
 </PageWrapper>
