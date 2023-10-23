@@ -1,11 +1,9 @@
 <script lang="ts">
   import PageWrapper from '$lib/components/PageWrapper.svelte'
-  import { goto } from '$app/navigation'
   import type { PageData } from './$types'
   import { enhance } from '$app/forms'
 
   export let data: PageData
-  if (!data.user) goto('/account/login')
 </script>
 
 <PageWrapper name="Account">

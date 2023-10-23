@@ -31,7 +31,7 @@
       </div>
       <div class="navbar-center">
         <NavbarLink to="/">home</NavbarLink>
-        {#if user?.admin}
+        {#if user?.role === 'admin'}
           <NavbarLink to="/admin">admin</NavbarLink>
         {/if}
         {#if user}

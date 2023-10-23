@@ -37,10 +37,7 @@ export const auth = lucia({
   }),
   experimental: { debugMode: dev },
   middleware: sveltekit(),
-  getUserAttributes: (data) => {
-    console.log({ data })
-    return { ...data }
-  },
+  getUserAttributes: (data) => ({ ...data }),
 })
 
 /** @see {@link auth} */
