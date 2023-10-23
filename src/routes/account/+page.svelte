@@ -12,7 +12,8 @@
   <p>account info</p>
   <p>user id: {data.user?.id}</p>
   <p>username: {data.user?.username}</p>
+  <p>role: {data.user?.role}</p>
   <form method="POST" action="?/logout" use:enhance>
-    <input type="submit" value="Logout" />
+    <button type="submit" class="btn">Logout</button>
   </form>
 </PageWrapper>

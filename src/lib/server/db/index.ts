@@ -19,6 +19,7 @@ sqlite.pragma('journal_mode = WAL')
  * @see {@link drizzle}
  */
 export const db = drizzle(sqlite, {
+  logger: { logQuery: (query, params) => console.info({ query, params }) },
   schema: { users, userSessions, userKeys },
 })
 
@@ -34,10 +35,15 @@ export const auth = lucia({
     key: 'userKeys',
     session: 'userSessions',
   }),
+  experimental: { debugMode: dev },
   middleware: sveltekit(),
-  getUserAttributes: (data) => ({ ...data }),
+  getUserAttributes: (data) => {
+    console.log({ data })
+    return { ...data }
+  },
 })
 
+/** @see {@link auth} */
 export type Auth = typeof auth
 
 /** executes drizzle-orm's migration function */
@@ -45,11 +51,12 @@ export async function migrate() {
   if (building) return
   console.group('running migrations...')
   try {
-    m(drizzle(sqlite), {
+    m(drizzle(sqlite, { logger: true }), {
       migrationsFolder: './src/lib/server/db/migrations',
     })
   } catch (err) {
     console.error(err instanceof Error ? err.message : String(err))
   }
   console.groupEnd()
+  console.log('done!')
 }

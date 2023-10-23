@@ -1,4 +1,4 @@
-import { sqliteTable, int, text, blob } from 'drizzle-orm/sqlite-core'
+import { sqliteTable, text, blob } from 'drizzle-orm/sqlite-core'
 
 export const users = sqliteTable('users', {
   /**
@@ -8,7 +8,8 @@ export const users = sqliteTable('users', {
    */
   id: text('id').primaryKey(),
   username: text('username').notNull(),
-  admin: int('admin', { mode: 'boolean' }).notNull().default(false),
+  /** @default 'user' */
+  role: text('role', { enum: ['user', 'admin'] }).notNull(),
 })
 /** @see {@link users} */
 export type User = typeof users.$inferSelect

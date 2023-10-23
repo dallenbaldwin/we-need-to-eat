@@ -1,6 +1,5 @@
 import { fail, redirect, type Actions } from '@sveltejs/kit'
 import { auth } from '$lib/server'
-import { DrizzleError } from 'drizzle-orm'
 
 export const actions: Actions = {
   default: async ({ request, locals }) => {
@@ -32,7 +31,7 @@ export const actions: Actions = {
           // lowercase to ensure uniqueness
           providerUserId: username.toLowerCase(),
         },
-        attributes: { username, admin: false },
+        attributes: { username, role: 'user' },
       })
       const session = await auth.createSession({
         userId: user.id,
@@ -40,7 +39,6 @@ export const actions: Actions = {
       })
       locals.auth.setSession(session)
     } catch (err) {
-      if (err instanceof DrizzleError) return fail(500, { reason: err.message })
       return fail(500, {
         reason: err instanceof Error ? err.message : String(err),
       })
