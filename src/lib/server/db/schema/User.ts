@@ -10,6 +10,10 @@ export const users = sqliteTable('users', {
   username: text('username').notNull(),
   /** @default 'user' */
   role: text('role', { enum: ['user', 'admin'] }).notNull(),
+  // https://daisyui.com/docs/themes/
+  // TODO lightTheme: 'light' | 'cupcake' | ...
+  // TODO darkTheme:  'dark' | 'dracula' | ...
+  // TODO selectedTheme: 'light' | 'dark' | 'system"
 })
 /** @see {@link users} */
 export type User = typeof users.$inferSelect
