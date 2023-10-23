@@ -8,4 +8,5 @@ export default {
   dbCredentials: {
     url: 'we-need-to-eat.db',
   },
+  verbose: true,
 } satisfies Config

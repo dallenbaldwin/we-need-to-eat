@@ -43,6 +43,7 @@ export type Auth = typeof auth
 /** executes drizzle-orm's migration function */
 export async function migrate() {
   if (building) return
+  console.group('running migrations...')
   try {
     m(drizzle(sqlite), {
       migrationsFolder: './src/lib/server/db/migrations',
@@ -50,4 +51,5 @@ export async function migrate() {
   } catch (err) {
     console.error(err instanceof Error ? err.message : String(err))
   }
+  console.groupEnd()
 }

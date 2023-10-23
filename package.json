@@ -12,7 +12,8 @@
     "format": "prettier --plugin-search-dir . --write .",
     "generate": "npx drizzle-kit generate:sqlite",
     "push": "npx drizzle-kit push:sqlite",
-    "drop": "npx drizzle-kit drop"
+    "drop": "npx drizzle-kit drop",
+    "studio": "npx drizzle-kit studio"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^2.0.0",
