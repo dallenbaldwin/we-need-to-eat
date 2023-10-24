@@ -30,7 +30,7 @@
   </div>
 
   <p>
-    Don't have an account? <Anchor href="/account/register">Register</Anchor>
+    Don't have an account? <Anchor href="/register">Register</Anchor>
   </p>
 
   {#if form?.reason}

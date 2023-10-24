@@ -43,7 +43,7 @@
   </div>
 
   <p>
-    Already have an account? <Anchor href="/account/login">Log in</Anchor>
+    Already have an account? <Anchor href="/login">Log in</Anchor>
   </p>
 
   {#if form?.reason}
