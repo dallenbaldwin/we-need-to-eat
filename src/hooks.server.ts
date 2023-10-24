@@ -6,10 +6,9 @@ migrate()
 export const handle: Handle = async ({ event, resolve }) => {
   const handledRequest = auth.handleRequest(event)
   const session = await handledRequest.validate()
-  // TODO separate account from login/register. probably merge login/register
-  if (!session && protect(event.url.pathname)) throw redirect(302, '/login')
-
   event.locals.auth = handledRequest
+
+  if (protect(event.url.pathname) && !session) throw redirect(302, '/login')
   if (session) event.locals.user = await auth.getUser(session.user.id)
 
   return resolve(event)

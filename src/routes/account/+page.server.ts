@@ -1,6 +1,6 @@
 import { fail, type Actions, redirect } from '@sveltejs/kit'
 import type { PageServerLoad } from './$types'
-import { auth } from '../../lib/server'
+import { auth } from '$lib/server'
 
 export const load: PageServerLoad = ({ parent }) => {
   return parent()

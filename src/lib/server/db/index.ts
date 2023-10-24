@@ -19,7 +19,7 @@ sqlite.pragma('journal_mode = WAL')
  * @see {@link drizzle}
  */
 export const db = drizzle(sqlite, {
-  logger: { logQuery: (query, params) => console.info({ query, params }) },
+  // logger: { logQuery: (query, params) => console.info({ query, params }) },
   schema: { users, userSessions, userKeys },
 })
 
@@ -35,7 +35,7 @@ export const auth = lucia({
     key: 'userKeys',
     session: 'userSessions',
   }),
-  experimental: { debugMode: dev },
+  // experimental: { debugMode: dev },
   middleware: sveltekit(),
   getUserAttributes: (data) => ({ ...data }),
 })
