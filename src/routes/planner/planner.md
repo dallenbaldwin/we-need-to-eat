@@ -1,10 +1,12 @@
-# Eat
+# Planner
 
-This page is where you get meals for a given period
+This page is where you plan meals for a given period
 
-it should have a form where you enter in parameters to help you decide where to eat for that time period
+it should have a form where you enter in parameters to help you decide where and what to eat for that time period
 
 you should be able to re-roll the whole time period or re-roll a single meal
+
+you should be able to save your selection, which saves the meals in the database so you can reference them later in /planner/{date}
 
 ## Filters
 
