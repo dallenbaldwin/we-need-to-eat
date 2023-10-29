@@ -1,5 +1,5 @@
 <script lange="ts">
-  import SvelteHead from '$lib/components/SvelteHead.svelte'
+  import { SvelteHead } from '$lib/components'
 </script>
 
 <SvelteHead title="Terms of use" />

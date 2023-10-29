@@ -1,8 +1,7 @@
 <script lang="ts">
   import type { ActionData } from './$types'
-  import Anchor from '$lib/components/Anchor.svelte'
   import { enhance } from '$app/forms'
-  import SvelteHead from '$lib/components/SvelteHead.svelte'
+  import { Anchor, SvelteHead } from '$lib/components'
 
   export let form: ActionData
 </script>

@@ -1,10 +1,7 @@
 <script lang="ts">
   import type { PageData } from './$types'
   import { enhance } from '$app/forms'
-  import Computer from '$lib/components/icons/Computer.svelte'
-  import Moon from '$lib/components/icons/Moon.svelte'
-  import Sun from '$lib/components/icons/Sun.svelte'
-  import SvelteHead from '../../lib/components/SvelteHead.svelte'
+  import { Computer, Moon, Sun, SvelteHead } from '$lib/components'
 
   export let data: PageData
 

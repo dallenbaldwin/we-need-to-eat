@@ -1,6 +1,5 @@
 <script>
-  import Anchor from '$lib/components/Anchor.svelte'
-  import SvelteHead from '$lib/components/SvelteHead.svelte'
+  import { Anchor, SvelteHead } from '$lib/components'
 </script>
 
 <SvelteHead title="Site Map" />
