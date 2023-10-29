@@ -1,6 +1,7 @@
 <script lang="ts">
   import { enhance } from '$app/forms'
   import Anchor from '$lib/components/Anchor.svelte'
+  import SvelteHead from '$lib/components/SvelteHead.svelte'
   import type { ActionData } from './$types'
 
   export let form: ActionData
@@ -10,6 +11,8 @@
   $: invalidConfirm = !!confirm && !confirm.length
   $: disabled = invalidConfirm || invalidPassword || password !== confirm
 </script>
+
+<SvelteHead title="Register" />
 
 <h1>Register</h1>
 

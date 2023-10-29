@@ -1,7 +1,7 @@
 <script lang="ts">
-  import PageWrapper from '$lib/components/PageWrapper.svelte'
+  import SvelteHead from '../../lib/components/SvelteHead.svelte'
 </script>
 
-<PageWrapper name="Cookie Policy">
-  <h1>cookies</h1>
-</PageWrapper>
+<SvelteHead title="Cookie Policy" />
+
+<h1>cookies</h1>

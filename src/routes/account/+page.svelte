@@ -1,10 +1,10 @@
 <script lang="ts">
-  import PageWrapper from '$lib/components/PageWrapper.svelte'
   import type { PageData } from './$types'
   import { enhance } from '$app/forms'
   import Computer from '$lib/components/icons/Computer.svelte'
   import Moon from '$lib/components/icons/Moon.svelte'
   import Sun from '$lib/components/icons/Sun.svelte'
+  import SvelteHead from '../../lib/components/SvelteHead.svelte'
 
   export let data: PageData
 
@@ -23,25 +23,24 @@
   }
 </script>
 
-<PageWrapper name="Account">
-  <p>account info</p>
-  <p>user id: {data.user?.id}</p>
-  <p>username: {data.user?.username}</p>
-  <p>role: {data.user?.role}</p>
-  <p>
-    theme: <span class="join">
-      <button class="btn join-item" on:click={() => setTheme('light')}
-        ><Sun /> light</button
-      >
-      <button class="btn join-item" on:click={() => setTheme('dark')}
-        ><Moon /> dark</button
-      >
-      <button class="btn join-item" on:click={() => setTheme()}
-        ><Computer /> system</button
-      >
-    </span>
-  </p>
-  <form method="POST" action="?/logout" use:enhance>
-    <button type="submit" class="btn">Logout</button>
-  </form>
-</PageWrapper>
+<SvelteHead title="Account" />
+<p>account info</p>
+<p>user id: {data.user?.id}</p>
+<p>username: {data.user?.username}</p>
+<p>role: {data.user?.role}</p>
+<p>
+  theme: <span class="join">
+    <button class="btn join-item" on:click={() => setTheme('light')}
+      ><Sun /> light</button
+    >
+    <button class="btn join-item" on:click={() => setTheme('dark')}
+      ><Moon /> dark</button
+    >
+    <button class="btn join-item" on:click={() => setTheme()}
+      ><Computer /> system</button
+    >
+  </span>
+</p>
+<form method="POST" action="?/logout" use:enhance>
+  <button type="submit" class="btn">Logout</button>
+</form>

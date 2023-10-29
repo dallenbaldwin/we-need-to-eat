@@ -1,7 +1,6 @@
 <script lange="ts">
-  import PageWrapper from '$lib/components/PageWrapper.svelte'
+  import SvelteHead from '$lib/components/SvelteHead.svelte'
 </script>
 
-<PageWrapper name="Terms of use">
-  <h1>terms</h1>
-</PageWrapper>
+<SvelteHead title="Terms of use" />
+<h1>terms</h1>

@@ -2,9 +2,12 @@
   import type { ActionData } from './$types'
   import Anchor from '$lib/components/Anchor.svelte'
   import { enhance } from '$app/forms'
+  import SvelteHead from '$lib/components/SvelteHead.svelte'
 
   export let form: ActionData
 </script>
+
+<SvelteHead title="Login" />
 
 <h1>Login</h1>
 

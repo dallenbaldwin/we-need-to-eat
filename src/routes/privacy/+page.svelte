@@ -1,7 +1,7 @@
 <script lang="ts">
-  import PageWrapper from '$lib/components/PageWrapper.svelte'
+  import SvelteHead from '$lib/components/SvelteHead.svelte'
 </script>
 
-<PageWrapper name="Privacy Policy">
-  <h1>privacy</h1>
-</PageWrapper>
+<SvelteHead title="Privacy Policy" />
+
+<h1>privacy</h1>
