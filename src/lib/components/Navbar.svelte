@@ -18,6 +18,7 @@
         <NavbarLink to="/sitemap">site map</NavbarLink>
         {#if user}
           <NavbarLink to="/eat">eat</NavbarLink>
+          <NavbarLink to="/planner">planner</NavbarLink>
           <NavbarLink to="/meals">meals</NavbarLink>
           <NavbarLink to="/account">account</NavbarLink>
         {:else}

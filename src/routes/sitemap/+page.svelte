@@ -18,3 +18,4 @@
 <Anchor href="/eat">eat</Anchor>
 <Anchor href="/meals">meals</Anchor>
 <Anchor href="/account">account</Anchor>
+<Anchor href="/planner">planner</Anchor>

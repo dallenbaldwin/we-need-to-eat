@@ -15,7 +15,13 @@ export const handle: Handle = async ({ event, resolve }) => {
 }
 
 function protect(pathname: string) {
-  const protectedPathnames = ['/eat', '/meals', '/admin', '/account'] as const
+  const protectedPathnames = [
+    '/eat',
+    '/meals',
+    '/admin',
+    '/account',
+    '/planner',
+  ] as const
   return protectedPathnames.some((protectedPathname) =>
     pathname.startsWith(protectedPathname)
   )
