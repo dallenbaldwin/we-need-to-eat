@@ -1,13 +1,12 @@
 import { drizzle } from 'drizzle-orm/better-sqlite3'
 import { migrate as m } from 'drizzle-orm/better-sqlite3/migrator'
 import { building, dev } from '$app/environment'
-import { users, userKeys, userSessions } from './schema/User'
 import Database from 'better-sqlite3'
 import { lucia } from 'lucia'
 import { betterSqlite3 } from '@lucia-auth/adapter-sqlite'
 import { sveltekit } from 'lucia/middleware'
-
-export * from './schema/User'
+import * as schema from './schema'
+export * from './schema'
 
 const database = 'we-need-to-eat.db' as const
 const sqlite = new Database(database)
@@ -20,7 +19,7 @@ sqlite.pragma('journal_mode = WAL')
  */
 export const db = drizzle(sqlite, {
   // logger: { logQuery: (query, params) => console.info({ query, params }) },
-  schema: { users, userSessions, userKeys },
+  schema,
 })
 
 /**
@@ -32,8 +31,8 @@ export const auth = lucia({
   env: dev ? 'DEV' : 'PROD',
   adapter: betterSqlite3(sqlite, {
     user: 'users',
-    key: 'userKeys',
-    session: 'userSessions',
+    key: 'user_keys',
+    session: 'user_sessions',
   }),
   // experimental: { debugMode: dev },
   middleware: sveltekit(),

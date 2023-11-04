@@ -30,7 +30,12 @@ export const actions: Actions = {
           // lowercase to ensure uniqueness
           providerUserId: username.toLowerCase(),
         },
-        attributes: { username, role: 'user' },
+        attributes: {
+          username,
+          role: 'user',
+          dark_theme: 'dark',
+          light_theme: 'light',
+        },
       })
       const session = await auth.createSession({
         userId: user.id,

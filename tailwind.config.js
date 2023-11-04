@@ -3,6 +3,11 @@ export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
   daisyui: {
+    /**
+     * make sure all these are defined in `darkThemes` and `lightThemes`
+     *
+     * @see {@link User}
+     */
     themes: [
       'light',
       'dark',
