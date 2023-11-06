@@ -31,8 +31,8 @@ export const auth = lucia({
   env: dev ? 'DEV' : 'PROD',
   adapter: betterSqlite3(sqlite, {
     user: 'users',
-    key: 'user_keys',
-    session: 'user_sessions',
+    key: 'userKeys',
+    session: 'userSessions',
   }),
   // experimental: { debugMode: dev },
   middleware: sveltekit(),

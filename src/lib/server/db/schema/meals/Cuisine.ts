@@ -1,5 +1,4 @@
-import { sqliteTable } from 'drizzle-orm/sqlite-core'
-import { id, archiveDate, createdDate, name, notes, userId } from '../common'
+import { int, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 import { relations } from 'drizzle-orm'
 import { meals } from './Meal'
 import { users } from '../User'
@@ -8,12 +7,19 @@ import { users } from '../User'
  * i.e. Chinese, American, Mexican
  */
 export const cuisines = sqliteTable('cuisines', {
-  id: id(),
-  archiveDate: archiveDate(),
-  createdDate: createdDate(),
-  name: name(),
-  notes: notes(),
-  userId: userId(),
+  id: text('id')
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  archiveDate: int('archiveDate', { mode: 'timestamp_ms' }),
+  createdDate: int('createdDate', { mode: 'timestamp_ms' })
+    .notNull()
+    .$defaultFn(() => new Date()),
+  name: text('name').notNull(),
+  notes: text('notes'),
+  /** @see {@link users.id} */
+  userId: text('userId')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
 })
 /** @see {@link cuisines} */
 export type Cuisine = typeof cuisines.$inferSelect

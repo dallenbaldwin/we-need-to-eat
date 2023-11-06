@@ -1,9 +1,9 @@
-import { sqliteTable, text } from 'drizzle-orm/sqlite-core'
-import { archiveDate, createdDate, id, name, notes, userId } from '../common'
+import { int, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 import { cuisines } from './Cuisine'
 import { relations } from 'drizzle-orm'
 import { users } from '../User'
 import { mealsToTags } from './MealToTag'
+import { ratings } from '../../../..'
 
 /**
  * a "base" entity that includes common properties for all meal types
@@ -11,14 +11,22 @@ import { mealsToTags } from './MealToTag'
  * each meal type entity will have a one-to-one with it's meal
  */
 export const meals = sqliteTable('meals', {
-  id: id(),
-  archiveDate: archiveDate(),
-  createdDate: createdDate(),
-  name: name(),
-  notes: notes(),
-  cuisineId: text('cuisine_id').references(() => cuisines.id),
-  rating: text('rating', { enum: ['1', '2', '3', '4', '5'] }),
-  userId: userId(),
+  id: text('id')
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  archiveDate: int('archiveDate', { mode: 'timestamp_ms' }),
+  createdDate: int('createdDate', { mode: 'timestamp_ms' })
+    .notNull()
+    .$defaultFn(() => new Date()),
+  name: text('name').notNull(),
+  notes: text('notes'),
+  /** @see {@link users.id} */
+  userId: text('userId')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
+  /** @see {@link cuisines.id} */
+  cuisineId: text('cuisineId').references(() => cuisines.id),
+  rating: text('rating', { enum: ratings }),
 })
 /** @see {@link meals} */
 export type Meal = typeof meals.$inferSelect
@@ -38,4 +46,14 @@ export const mealsRelations = relations(meals, ({ one, many }) => ({
   }),
   /** @see {@link mealsToTags} */
   mealToTags: many(mealsToTags),
+  // /** @see {@link recipes} */
+  // recipe: one(recipes, {
+  //   fields: [meals.id],
+  //   references: [recipes.mealId],
+  // }),
+  // /** @see {@link restaurants} */
+  // restaurant: one(restaurants, {
+  //   fields: [meals.id],
+  //   references: [restaurants.mealId],
+  // }),
 }))

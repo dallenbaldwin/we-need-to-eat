@@ -12,16 +12,22 @@ import { relations } from 'drizzle-orm'
  * in {@link sqliteTable}
  */
 export const mealsToTags = sqliteTable(
-  'meals_to_tags',
+  'mealsToTags',
   {
-    mealId: text('meal_id').references(() => meals.id, {
-      onDelete: 'cascade',
-      onUpdate: 'cascade',
-    }),
-    tagId: text('tag_id').references(() => tags.id, {
-      onDelete: 'cascade',
-      onUpdate: 'cascade',
-    }),
+    /** @see {@link meals.id} */
+    mealId: text('mealId')
+      .notNull()
+      .references(() => meals.id, {
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
+      }),
+    /** @see {@link tags.id} */
+    tagId: text('tagId')
+      .notNull()
+      .references(() => tags.id, {
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
+      }),
   },
   ({ mealId, tagId }) => ({ pk: primaryKey(tagId, mealId) })
 )
@@ -29,6 +35,7 @@ export const mealsToTags = sqliteTable(
 export type MealToTag = typeof mealsToTags.$inferSelect
 /** @see {@link mealsToTags} */
 export type InsertMealToTag = typeof mealsToTags.$inferInsert
+/** @see {@link mealsToTags} */
 export const mealsToTagsRelations = relations(mealsToTags, ({ one }) => ({
   /** @see {@link meals} */
   meal: one(meals, {

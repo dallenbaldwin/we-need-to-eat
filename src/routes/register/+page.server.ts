@@ -33,8 +33,8 @@ export const actions: Actions = {
         attributes: {
           username,
           role: 'user',
-          dark_theme: 'dark',
-          light_theme: 'light',
+          darkTheme: 'dark',
+          lightTheme: 'light',
         },
       })
       const session = await auth.createSession({

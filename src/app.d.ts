@@ -9,12 +9,7 @@ declare global {
      * these have to match the _database_ column names, not what you called them
      * in Drizzle's config
      */
-    type DatabaseUserAttributes = {
-      username: User['username']
-      light_theme: User['lightTheme']
-      dark_theme: User['darkTheme']
-      role: User['role']
-    }
+    type DatabaseUserAttributes = Omit<User, 'id'>
     type DatabaseSessionAttributes = NonNullable<unknown>
   }
 
