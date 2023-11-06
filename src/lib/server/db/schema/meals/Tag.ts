@@ -1,6 +1,6 @@
 import { int, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 import { relations } from 'drizzle-orm'
-import { users } from '../User'
+import { users } from '../users/User'
 import { mealsToTags } from './MealToTag'
 
 /**

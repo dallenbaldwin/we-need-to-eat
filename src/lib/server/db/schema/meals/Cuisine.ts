@@ -1,7 +1,7 @@
 import { int, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 import { relations } from 'drizzle-orm'
 import { meals } from './Meal'
-import { users } from '../User'
+import { users } from '../users/User'
 
 /**
  * i.e. Chinese, American, Mexican
