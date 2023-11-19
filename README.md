@@ -8,9 +8,9 @@ a rebuild of the [original](https://github.com/dallenbaldwin/WeNeedToEat), with 
 
 [docs](https://orm.drizzle.team/docs/overview)
 
-## daisy-ui
+## dev docs
 
-[docs](https://daisyui.com/docs/)
+[clickup](https://app.clickup.com/10629295/v/dc/a4c5f-1211)
 
 ## create-svelte
 
