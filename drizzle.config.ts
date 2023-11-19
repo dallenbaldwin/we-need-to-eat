@@ -5,8 +5,6 @@ export default {
   schema: `${db}/schema`,
   out: `${db}/migrations`,
   driver: 'better-sqlite',
-  dbCredentials: {
-    url: 'we-need-to-eat.db',
-  },
+  dbCredentials: { url: 'we-need-to-eat.db' },
   verbose: true,
 } satisfies Config
