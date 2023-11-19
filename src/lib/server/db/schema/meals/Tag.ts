@@ -1,24 +1,17 @@
-import { int, sqliteTable, text } from 'drizzle-orm/sqlite-core'
+import { sqliteTable } from 'drizzle-orm/sqlite-core'
 import { relations } from 'drizzle-orm'
 import { users } from '../users/User'
-import { mealsToTags } from './MealToTag'
+import { baseColumns, withName, withUserId } from '../../common'
+import { recipesToTags } from '../recipes/RecipeToTag'
+import { restaurantsToTags } from '../restaurants/RestaurantToTag'
 
 /**
  * tags allow users to group meals into buckets
  */
 export const tags = sqliteTable('tags', {
-  id: text('id')
-    .primaryKey()
-    .$defaultFn(() => crypto.randomUUID()),
-  archiveDate: int('archiveDate', { mode: 'timestamp_ms' }),
-  createdDate: int('createdDate', { mode: 'timestamp_ms' })
-    .notNull()
-    .$defaultFn(() => new Date()),
-  name: text('name').notNull(),
-  /** @see {@link users.id} */
-  userId: text('userId')
-    .notNull()
-    .references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
+  ...baseColumns(),
+  ...withUserId(),
+  ...withName(),
 })
 /** @see {@link tags} */
 export type Tag = typeof tags.$inferSelect
@@ -30,6 +23,8 @@ export const tagsRelations = relations(tags, ({ one, many }) => ({
     fields: [tags.userId],
     references: [users.id],
   }),
-  /** @see {@link mealsToTags} */
-  tagToMeals: many(mealsToTags),
+  /** @see {@link recipesToTags} */
+  tagToRecipes: many(recipesToTags),
+  /** @see {@link restaurantsToTags} */
+  tagToRestaurants: many(restaurantsToTags),
 }))

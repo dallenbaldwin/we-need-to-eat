@@ -1,10 +1,62 @@
 import { relations } from 'drizzle-orm'
 import { sqliteTable, text } from 'drizzle-orm/sqlite-core'
-import { meals } from '../meals/Meal'
 import { tags } from '../meals/Tag'
-import { darkThemes, lightThemes, roles } from '../../../..'
 import { userKeys } from './UserKey'
 import { userSessions } from './UserSession'
+
+/** @see {@link users.role} */
+export const roles = ['user', 'admin'] as const
+
+/**
+ * light theme options
+ *
+ * light if the text color is dark
+ *
+ * @see {@link https://daisyui.com/docs/themes/}
+ * @see {@link users.lightTheme}
+ */
+export const lightThemes = [
+  'light',
+  'cupcake',
+  'bumblebee',
+  'emerald',
+  'corporate',
+  'retro',
+  'cyberpunk',
+  'valentine',
+  'garden',
+  'lofi',
+  'pastel',
+  'fantasy',
+  'wireframe',
+  'cmyk',
+  'autumn',
+  'acid',
+  'lemonade',
+  'winter',
+] as const
+
+/**
+ * dark theme options
+ *
+ * dark if the text color is light
+ *
+ * @see {@link https://daisyui.com/docs/themes/}
+ * @see {@link users.darkTheme}
+ */
+export const darkThemes = [
+  'dark',
+  'synthwave',
+  'halloween',
+  'forest',
+  'aqua',
+  'black',
+  'luxury',
+  'dracula',
+  'business',
+  'night',
+  'coffee',
+] as const
 
 /**
  * partially managed by lucia
@@ -55,8 +107,6 @@ export const usersRelations = relations(users, ({ many }) => ({
   userKeys: many(userKeys),
   /** @see {@link userSessions} */
   userSessions: many(userSessions),
-  /** @see {@link meals} */
-  meals: many(meals),
   /** @see {@link tags} */
   tags: many(tags),
 }))
