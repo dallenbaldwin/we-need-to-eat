@@ -8,57 +8,6 @@ import { userSessions } from './UserSession'
 export const roles = ['user', 'admin'] as const
 
 /**
- * light theme options
- *
- * light if the text color is dark
- *
- * @see {@link https://daisyui.com/docs/themes/}
- * @see {@link users.lightTheme}
- */
-export const lightThemes = [
-  'light',
-  'cupcake',
-  'bumblebee',
-  'emerald',
-  'corporate',
-  'retro',
-  'cyberpunk',
-  'valentine',
-  'garden',
-  'lofi',
-  'pastel',
-  'fantasy',
-  'wireframe',
-  'cmyk',
-  'autumn',
-  'acid',
-  'lemonade',
-  'winter',
-] as const
-
-/**
- * dark theme options
- *
- * dark if the text color is light
- *
- * @see {@link https://daisyui.com/docs/themes/}
- * @see {@link users.darkTheme}
- */
-export const darkThemes = [
-  'dark',
-  'synthwave',
-  'halloween',
-  'forest',
-  'aqua',
-  'black',
-  'luxury',
-  'dracula',
-  'business',
-  'night',
-  'coffee',
-] as const
-
-/**
  * partially managed by lucia
  *
  * lucia does not support default, auto generated, column values
@@ -67,7 +16,7 @@ export const darkThemes = [
  */
 export const users = sqliteTable('users', {
   /**
-   * generated and managed by lucia
+   * if you don't generate a uuid, lucia will create a 15 char [a-z]|[0-9] string
    *
    * @see https://lucia-auth.com/basics/users/
    */
@@ -82,20 +31,6 @@ export const users = sqliteTable('users', {
    * @see {@link roles}
    */
   role: text('role', { enum: roles }).notNull(),
-  /**
-   * the theme to use when the system color scheme is light
-   *
-   * @default 'light'
-   * @see {@link lightThemes}
-   */
-  lightTheme: text('lightTheme', { enum: lightThemes }).notNull(),
-  /**
-   * the theme to use when the system color scheme is dark
-   *
-   * @default 'dark'
-   * @see {@link darkThemes}
-   */
-  darkTheme: text('darkTheme', { enum: darkThemes }).notNull(),
 })
 /** @see {@link users} */
 export type User = typeof users.$inferSelect
