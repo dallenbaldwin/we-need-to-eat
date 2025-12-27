@@ -1,0 +1,11 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - file.inFolder("tasks")
+    order:
+      - file.name
+      - file.ctime
+      - file.mtime
+      - file.tags

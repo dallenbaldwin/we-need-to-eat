@@ -1,0 +1,198 @@
+{
+  "main": {
+    "id": "dc7aaa9719155c29",
+    "type": "split",
+    "children": [
+      {
+        "id": "465f6dd0a382b823",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5f43d3f8f90d6e09",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "tasks/_tasks.base",
+                "viewName": "Table"
+              },
+              "icon": "lucide-table",
+              "title": "_tasks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1274b452ac7260ee",
+    "type": "split",
+    "children": [
+      {
+        "id": "0904707cb0fa5242",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "27b23c35a72dce1f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "851b8f3846e6371c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#Meal",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "9ee6e0e264c56ed0",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c09392059c3551a8",
+    "type": "split",
+    "children": [
+      {
+        "id": "7a5ff9b771cc26f3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c2001f2572b58374",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "tasks/_tasks.base",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for _tasks"
+            }
+          },
+          {
+            "id": "99e304b6e18acaab",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "tasks/_tasks.base",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from _tasks"
+            }
+          },
+          {
+            "id": "2c5c3850b4fa52b7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "a39592a174d5e925",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "690ac474f9389ac6",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "tasks/_tasks.base",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of _tasks"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "5f43d3f8f90d6e09",
+  "lastOpenFiles": [
+    "docs/view from 10,000 ft.md",
+    "docs/Planner.md",
+    "docs/Meals.md",
+    "docs/Account.md",
+    "tasks/_tasks.base",
+    "Untitled",
+    "Untitled.md",
+    "README.md",
+    "docs",
+    "tasks"
+  ]
+}
