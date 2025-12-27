@@ -1,6 +1,7 @@
 meals are managed in this page and populate in the [[Planner]]
 
 meal is a base entity, and multiple types have one-one's with that meal
+
 - [Recipes](#recipes)
 - [Restaurants](#restaurants)
 

@@ -11,7 +11,7 @@ you should be able to save your selection, which saves the meals in the database
 - cuisine
 - location (i.e. home, out)
 - price per person
-    - for in home meals, this would be the cost per portion
+  - for in home meals, this would be the cost per portion
 
 ## Generate Shopping List
 
