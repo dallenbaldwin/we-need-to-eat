@@ -1,5 +1,3 @@
-# README
-
 a rebuild of the [original](https://github.com/dallenbaldwin/WeNeedToEat), with svelte-kit
 
 [site](https://weneedtoeat.dallenbaldwin.dev/) (may be old, may be new depending on where things are)
